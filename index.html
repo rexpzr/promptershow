@@ -1,0 +1,51 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script>
+$(function(){
+  $("#submit").click(function(){
+    $("#black_text").text($("#input_text").val());
+    $("html,body").animate({scrollTop:$("#black_text").offset().top});
+  });
+});
+</script>
+<style>
+
+body {
+  background-color: #000;
+  margin: 30px;
+}
+
+h1 {
+  color: #fff;
+}
+
+#input_text {
+  background-color: #000;
+  color: #fff;
+}
+
+#submit {
+  background-color: #000;
+  color: #fff;
+}
+
+#black_text {
+  color: #fff;
+  font-size: 200%;
+  font-weight: bold;
+  transform: rotateY(180deg);
+  white-space: pre;
+}
+
+</style>
+</head>
+<body>
+  <h1>Prompter Show</h1>
+  <div>
+    <textarea id="input_text" cols="30" rows="10"></textarea>
+  </div>
+  <div><button id="submit">Apply</button></div>
+  <div id="black_text"></div>
+</body>
+</html>
