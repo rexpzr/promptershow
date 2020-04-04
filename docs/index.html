@@ -2,9 +2,26 @@
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script>
+/* https://qiita.com/saekis/items/c2b41cd8940923863791 */
+function escape_html (string) {
+  if(typeof string !== 'string') {
+    return string;
+  }
+  return string.replace(/[&'`"<>]/g, function(match) {
+    return {
+      '&': '&amp;',
+      "'": '&#x27;',
+      '`': '&#x60;',
+      '"': '&quot;',
+      '<': '&lt;',
+      '>': '&gt;',
+    }[match]
+  });
+}
+  
 $(function(){
   $("#submit").click(function(){
-    $("#black_text").text($("#input_text").val());
+    $("#black_text").text(escape_html($("#input_text").val()).replace(/\r?\n/g, '<br>'););
     $("html,body").animate({scrollTop:$("#black_text").offset().top});
   });
 });
@@ -35,7 +52,6 @@ h1 {
   font-size: 200%;
   font-weight: bold;
   transform: rotateY(180deg);
-  white-space: pre;
 }
 
 </style>
