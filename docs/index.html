@@ -21,7 +21,7 @@ function escape_html (string) {
   
 $(function(){
   $("#submit").click(function(){
-    $("#black_text").text(escape_html($("#input_text").val()).replace(/\r?\n/g, '<br>'););
+    $("#black_text").html(escape_html($("#input_text").val()).replace(/\r?\n/g, "<br>"));
     $("html,body").animate({scrollTop:$("#black_text").offset().top});
   });
 });
