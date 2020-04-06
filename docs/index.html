@@ -25,6 +25,17 @@ $(function(){
     $("#black_text").html(escape_html($("#input_text").val()).replace(/\r?\n/g, "<br>"));
     $("html,body").animate({scrollTop:$("#black_text").offset().top});
   });
+  
+  var $size = $("#size");
+  for (var i=50; i<=400; i+=10) {
+    $size.append($("<option />").val(i).text(i + " %"));
+  }
+  $size.change(function() {
+    var size = $size.val();
+    $("#black_text").css("font-size", size + "%");
+  });
+  $size.val(200);
+  $size.change();
 });
 </script>
 <style>
@@ -51,7 +62,6 @@ h1 {
 
 #black_text {
   color: #fff;
-  font-size: 200%;
   font-weight: bold;
   transform: rotateY(180deg);
 }
@@ -63,7 +73,7 @@ h1 {
   <div>
     <textarea id="input_text" cols="30" rows="10"></textarea>
   </div>
-  <div><button id="submit">Apply</button></div>
+  <div><button id="submit">Apply</button> <select id="size"></select></div>
   <div id="black_text"></div>
 </body>
 </html>
