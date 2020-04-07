@@ -30,7 +30,7 @@ $(function(){
   });
   
   var $size = $("#size");
-  for (var i=50; i<=400; i+=10) {
+  for (var i=50; i<=500; i+=10) {
     $size.append($("<option />").val(i).text(i + " %"));
   }
   $size.change(function() {
@@ -39,6 +39,17 @@ $(function(){
   });
   $size.val(200);
   $size.change();
+  
+  var $width = $("#width");
+  for (var i=30; i<=100; i+=5) {
+    $width.append($("<option />").val(i).text(i + " %"));
+  }
+  $width.change(function() {
+    var width = $width.val();
+    $("#black_text").css("width", width + "%");
+  });
+  $width.val(100);
+  $width.change();
 });
 </script>
 <style>
@@ -73,6 +84,7 @@ h1 {
   color: #fff;
   font-weight: bold;
   transform: rotateY(180deg);
+  margin: auto;
 }
 
 </style>
@@ -82,7 +94,7 @@ h1 {
   <div>
     <textarea id="input_text" cols="30" rows="10"></textarea>
   </div>
-  <div><button id="submit">Apply</button> <select id="size"></select></div>
+  <div><button id="submit">Apply</button> Size:<select id="size"></select> Width:<select id="width"></select></div>
   <div id="black_text"></div>
 </body>
 </html>
