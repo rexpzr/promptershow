@@ -55,9 +55,12 @@ $(function(){
 <style>
 
 body {
-  color: #fff;
   background-color: #000;
   margin: 30px;
+}
+  
+.label {
+  color: #fff;
 }
 
 h1 {
@@ -99,7 +102,7 @@ h1 {
   <div>
     <textarea id="input_text" cols="30" rows="10"></textarea>
   </div>
-  <div><button id="submit">Apply</button> Size:<select id="size"></select> Width:<select id="width"></select></div>
+  <div><button id="submit">Apply</button> <span class="label">Size:</span><select id="size"></select> <span class="label">Width:</span><select id="width"></select></div>
   <div id="black_text"></div>
 </body>
 </html>
